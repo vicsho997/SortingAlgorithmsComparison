@@ -1,7 +1,6 @@
-# SortingAlgorithmsComparison """
+# SortingAlgorithmsComparison
 These use the technique of comparing array elements with each other to figure out the final sorted order. These have time complexity lower bound of O(n logn).
 
-"""
 """
 Points to remember
 ⭐ Insertion sort is a fast in-place sorting algorithm for small input sizes.
