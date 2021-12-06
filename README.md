@@ -1,7 +1,6 @@
 # SortingAlgorithmsComparison
 These use the technique of comparing array elements with each other to figure out the final sorted order. These have time complexity lower bound of O(n logn).
 
-"""
 Points to remember
 ⭐ Insertion sort is a fast in-place sorting algorithm for small input sizes.
 
@@ -14,4 +13,4 @@ Points to remember
 ⭐ Radix sort is useful in problems where there are numbers in large ranges.
 
 ⭐ Bucket Sort is useful when input is uniformly distributed over a range and there are floating point values.
-"""
+
