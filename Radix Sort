@@ -1,0 +1,74 @@
+class solution{
+ public:
+      void countSort(vector<int>& arr, int index) {
+   
+        const int max = 10;         // creating groups of size 0-9
+     int size = arr.size();
+     vector<int> output;
+     vector<int>temp;
+for (int i = 0; i <= max; ++i) {
+    temp[i] = 0;
+     }
+                           // Calculating occurences of each element
+     for (int i = 0; i < size; i++) {
+    temp[(arr[i]/index)%10]++;
+     }
+for (int i = 1; i <= max; i++) {
+    temp[i] += temp[i - 1];
+     }
+                                // Placing elements in sorted order
+     for (int i = size - 1; i >= 0; i--) 
+     {
+    output[temp[(arr[i]/index)%10] - 1] = arr[i];
+    temp[(arr[i]/index)%10]--;
+     }
+for (int i = 0; i < size; i++) {
+    arr[i] = output[i];
+     }
+  }
+void radixsort(vector<int>& arr) {
+   int size = arr.size();
+                                   // finding the maximum element
+   int maxelem = arr[0];
+   for (int i = 1; i < size; i++) {
+   if (arr[i] > maxelem)
+   maxelem = arr[i];
+   }
+                                        // applying counting sort
+   for (int i = 1; maxelem / i > 0; i *= 10)
+  countingSort(arr, i);
+ }
+};
+2. Bucket Sort
+It sorts the array by first dividing the array elements into several groups called buckets. The elements inside each bucket are sorted using any of the suitable sorting algorithm. At the end, elements of the buckets are grouped together to get resultant sorted array.
+Time Complexity : O(n+k) in Best & Average case & O(n²) in worst case.
+Space Complexity : O(n)
+Sorting In-Place : No
+class solution{
+public:
+ void bucketSort(vector<float> arr) 
+{  
+  int n = arr.size();
+  vector<float> bucket; 
+                              // Pushing the elements into buckets
+  for (int i = 0; i < n; i++) 
+  { 
+   int index = n * arr[i]; 
+   bucket[index].push_back(arr[i]); 
+  } 
+                               // sorting elements of each bucket
+  for (int i = 0; i < n; i++) 
+  {
+   sort(bucket[index].begin(), bucket[index].end()); 
+  }
+   
+     int k = 0;                        
+   for (int i = 0; i < n; i++)
+        {   
+     for (int j = 0; j < b[i].size(); j++)
+            {               // Concatenating all buckets into arr 
+    arr[k++] = bucket[i][j]; 
+            }
+        }
+ } 
+};
